@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import Link from 'next/link'
+import { FaSpinner } from 'react-icons/fa'
 
 interface Student {
   student_id?: string
@@ -62,7 +63,11 @@ export default function StudentForm({ action, initialData }: StudentFormProps) {
   }
 
   return (
-    <form action={handleSubmit} className="form">
+    <form action={handleSubmit} className="form" style={{ position: 'relative' }}>
+      {isSubmitting && (
+        <div className="form-overlay" />
+      )}
+      
       {success && (
         <div className="alert alert-success">
           Student saved successfully! Redirecting...
@@ -333,7 +338,14 @@ export default function StudentForm({ action, initialData }: StudentFormProps) {
           disabled={isSubmitting}
           className="btn btn-primary"
         >
-          {isSubmitting ? 'Saving...' : initialData ? 'Update' : 'Create'}
+          {isSubmitting ? (
+            <>
+              <FaSpinner className="spinner-icon" />
+              Saving...
+            </>
+          ) : (
+            initialData ? 'Update' : 'Create'
+          )}
         </button>
         <Link href="/" className="btn btn-secondary">
           Cancel

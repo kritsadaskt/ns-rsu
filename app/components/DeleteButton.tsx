@@ -3,6 +3,7 @@
 import { deleteStudent } from '../actions'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { FaSpinner } from 'react-icons/fa'
 
 export default function DeleteButton({ id }: { id: string }) {
   const router = useRouter()
@@ -25,12 +26,22 @@ export default function DeleteButton({ id }: { id: string }) {
   }
 
   return (
-    <button
-      onClick={handleDelete}
-      disabled={isDeleting}
-      className="btn btn-danger"
-    >
-      {isDeleting ? 'Deleting...' : 'Delete'}
-    </button>
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      {isDeleting && <div className="delete-overlay" />}
+      <button
+        onClick={handleDelete}
+        disabled={isDeleting}
+        className="btn btn-danger"
+      >
+        {isDeleting ? (
+          <>
+            <FaSpinner className="spinner-icon" />
+            Deleting...
+          </>
+        ) : (
+          'Delete'
+        )}
+      </button>
+    </div>
   )
 }

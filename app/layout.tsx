@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Noto_Sans_Thai_Looped } from 'next/font/google'
 import React from 'react'
 import './globals.css'
+import NavigationProgress from './components/NavigationProgress'
 
 const notoSansThaiLooped = Noto_Sans_Thai_Looped({
   weight: ['400', '500', '600', '700'],
@@ -22,7 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="th" className={notoSansThaiLooped.variable}>
-      <body className={notoSansThaiLooped.className}>{children}</body>
+      <body className={notoSansThaiLooped.className}>
+        <NavigationProgress />
+        {children}
+      </body>
     </html>
   )
 }
