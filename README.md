@@ -34,8 +34,8 @@ pnpm install
 Your environment variables should already be set in your `.env` file:
 
 ```
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
 Make sure these match your Supabase project credentials from your project settings.

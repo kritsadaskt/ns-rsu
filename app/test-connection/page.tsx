@@ -8,14 +8,14 @@ export default async function TestConnection() {
 
   try {
     // Check environment variables
-    const hasUrl = !!process.env.NEXT_PUBLIC_SUPABASE_URL
-    const hasKey = !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    const hasUrl = !!process.env.SUPABASE_URL
+    const hasKey = !!process.env.SUPABASE_ANON_KEY
 
     if (!hasUrl || !hasKey) {
       throw new Error(
         `Missing environment variables:\n` +
-        `NEXT_PUBLIC_SUPABASE_URL: ${hasUrl ? '✓' : '✗'}\n` +
-        `NEXT_PUBLIC_SUPABASE_ANON_KEY: ${hasKey ? '✓' : '✗'}`
+        `SUPABASE_URL: ${hasUrl ? '✓' : '✗'}\n` +
+        `SUPABASE_ANON_KEY: ${hasKey ? '✓' : '✗'}`
       )
     }
 
@@ -66,10 +66,10 @@ export default async function TestConnection() {
           <h3>Environment Variables:</h3>
           <ul style={{ marginTop: '0.5rem', listStyle: 'none' }}>
             <li>
-              NEXT_PUBLIC_SUPABASE_URL: {process.env.NEXT_PUBLIC_SUPABASE_URL ? '✓ Set' : '✗ Missing'}
+              SUPABASE_URL: {process.env.SUPABASE_URL ? '✓ Set' : '✗ Missing'}
             </li>
             <li>
-              NEXT_PUBLIC_SUPABASE_ANON_KEY: {process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? '✓ Set' : '✗ Missing'}
+              SUPABASE_ANON_KEY: {process.env.SUPABASE_ANON_KEY ? '✓ Set' : '✗ Missing'}
             </li>
           </ul>
         </div>

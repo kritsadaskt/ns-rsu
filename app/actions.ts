@@ -7,7 +7,7 @@ export async function getStudents() {
   const supabase = await createClient()
   
   // Verify environment variables
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) {
     throw new Error('Missing Supabase environment variables. Please check your .env file.')
   }
   
